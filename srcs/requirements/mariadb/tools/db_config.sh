@@ -2,8 +2,6 @@
 
 service mariadb start 
 
-# service mariadb status
-
 sleep 3
 
 echo -e "
@@ -14,13 +12,9 @@ echo -e "
     FLUSH PRIVILEGES;
 " | mysql
 
-# sleep infinity
-
 # service mariadb stop
 kill $(cat /var/run/mysqld/mysqld.pid)
 
 sleep 3
 
-exec mysqld_safe
-
-sleep infinity
+exec mysqld

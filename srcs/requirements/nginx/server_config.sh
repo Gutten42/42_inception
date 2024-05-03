@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout sskey.key -out sscert.crt -subj "/C=ES/L=Madrid/CN=${DOMAIN_NAME}"
+mkdir -p /etc/nginx/certs
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/certs/sskey.key -out /etc/nginx/certs/sscert.crt -subj "/C=ES/L=Madrid/CN=${DOMAIN_NAME}"
 
 echo -e 'server {
         listen 443 ssl;
